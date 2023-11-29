@@ -1,0 +1,209 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Api Document Order",
+        "title": "Api Document Orders",
+        "termsOfService": "http://localhost",
+        "contact": {
+            "name": "pegadaian",
+            "email": "pegadaian.id"
+        },
+        "license": {
+            "name": "pegadaian 1.0"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:9000",
+    "basePath": "/",
+    "paths": {
+        "/orders": {
+            "get": {
+                "description": "Get data all order",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Get data order",
+                "parameters": [
+                    {
+                        "description": "Get data all order",
+                        "name": "model.Orders",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Orders"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Orders"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create data order",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Create data order",
+                "parameters": [
+                    {
+                        "description": "Create data order",
+                        "name": "model.Orders",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Orders"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Orders"
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/:orderId": {
+            "put": {
+                "description": "Update data order",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Update data order",
+                "parameters": [
+                    {
+                        "description": "Update data order",
+                        "name": "model.Orders",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Orders"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Orders"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete data order",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Delete data order",
+                "parameters": [
+                    {
+                        "description": "Delete data order",
+                        "name": "model.Orders",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Orders"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Orders"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.Items": {
+            "type": "object",
+            "properties": {
+                "CreatedAt": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer"
+                },
+                "ItemCode": {
+                    "type": "string"
+                },
+                "OrderId": {
+                    "type": "integer"
+                },
+                "Quantity": {
+                    "type": "integer"
+                },
+                "UpdatedAt": {
+                    "type": "string"
+                },
+                "order": {
+                    "$ref": "#/definitions/model.Orders"
+                }
+            }
+        },
+        "model.Orders": {
+            "type": "object",
+            "properties": {
+                "CreatedAt": {
+                    "type": "string"
+                },
+                "CustomerName": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer"
+                },
+                "Items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Items"
+                    }
+                },
+                "OrderedAt": {
+                    "type": "string"
+                },
+                "UpdatedAt": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

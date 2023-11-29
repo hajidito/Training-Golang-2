@@ -1,0 +1,137 @@
+basePath: /
+definitions:
+  model.Items:
+    properties:
+      CreatedAt:
+        type: string
+      Description:
+        type: string
+      Id:
+        type: integer
+      ItemCode:
+        type: string
+      OrderId:
+        type: integer
+      Quantity:
+        type: integer
+      UpdatedAt:
+        type: string
+      order:
+        $ref: '#/definitions/model.Orders'
+    type: object
+  model.Orders:
+    properties:
+      CreatedAt:
+        type: string
+      CustomerName:
+        type: string
+      Id:
+        type: integer
+      Items:
+        items:
+          $ref: '#/definitions/model.Items'
+        type: array
+      OrderedAt:
+        type: string
+      UpdatedAt:
+        type: string
+    type: object
+host: localhost:9000
+info:
+  contact:
+    email: pegadaian.id
+    name: pegadaian
+  description: Api Document Order
+  license:
+    name: pegadaian 1.0
+  termsOfService: http://localhost
+  title: Api Document Orders
+  version: "1.0"
+paths:
+  /orders:
+    get:
+      consumes:
+      - application/json
+      description: Get data all order
+      parameters:
+      - description: Get data all order
+        in: body
+        name: model.Orders
+        required: true
+        schema:
+          $ref: '#/definitions/model.Orders'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Orders'
+      summary: Get data order
+      tags:
+      - Order
+    post:
+      consumes:
+      - application/json
+      description: Create data order
+      parameters:
+      - description: Create data order
+        in: body
+        name: model.Orders
+        required: true
+        schema:
+          $ref: '#/definitions/model.Orders'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Orders'
+      summary: Create data order
+      tags:
+      - Order
+  /orders/:orderId:
+    delete:
+      consumes:
+      - application/json
+      description: Delete data order
+      parameters:
+      - description: Delete data order
+        in: body
+        name: model.Orders
+        required: true
+        schema:
+          $ref: '#/definitions/model.Orders'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Orders'
+      summary: Delete data order
+      tags:
+      - Order
+    put:
+      consumes:
+      - application/json
+      description: Update data order
+      parameters:
+      - description: Update data order
+        in: body
+        name: model.Orders
+        required: true
+        schema:
+          $ref: '#/definitions/model.Orders'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Orders'
+      summary: Update data order
+      tags:
+      - Order
+swagger: "2.0"
